@@ -5,12 +5,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post</title>
+
+    <!-- Import icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Import Local CSS Files -->
+    <link rel="stylesheet" href="./sass/css/layout.css">
+    <link rel="stylesheet" href="/sass/css/post.css">
+    <link rel="stylesheet" href="./sass/css/modal.css">
 </head>
 <body>
+    <!-- Mid -->
     <main class="container" id="js-posts-container">
+
+        <!-- Input section to make a post -->
         <div class="post-maker">
-            <div class="post-maker__input-container"></div>
+
+            <!-- This box contains avatar and a button to create post -->
+            <div class="post-maker_create-container">
+
+                <!-- Avatar container -->
+                <div class="create-container__image"></div>
+
+                <!-- Button container -->
+                <button class="create-container__button" id="js-postCreateButton">Bạn đang nghĩ gì?</button>
+            </div>
+
+            <hr>
+
+            <!-- Other options to make other types of post -->
+            <div class="other-option">
+                <button class="other-option__live"><i class="fa-solid fa-video icon--red"></i> Video trực tiếp</button>
+                <button class="other-options__image-video"><i class="fa-solid fa-image icon--green"></i> Ảnh/video</button>
+                <button class="other-options__event"><i class="fa-solid fa-flag icon--blue"></i> Sự kiện trong đời</button>
+            </div>
         </div>
+
+        <div class="modal">
+            <!-- Modal Box, Input data to create post -->
+        <section class="post-input">
+
+            <!-- This box contain box name and user's name, avatar and setting -->
+            <div class="post-input__header-input-box">
+
+                <!-- This box contain box's name and cancel button -->
+                <header class="header-input-box__option-name">
+                    <h1 class="option-name__name">Tạo bài viết</h1>
+                    <button class="option-name__exit" id="js-postCancelButton"><i class="fa-solid fa-xmark-large"></i></button>
+                </header>
+
+                <!-- This box contain user's name, avatar and privacy setting -->
+                <div class="header-input-box__user-setting">
+                    <div class="user-setting__avatar"></div>
+                    <p class="user-setting__name">Nguyen Anh Tuan</p>
+                    <button class="user-setting__setting"><i class="fa-solid fa-earth-americas"></i>Công khai<i class="fa-solid fa-caret-down"></i></button>
+                </div>
+            </div>
+
+            <!-- Input section -->
+            <div class="post-input__body-input-box">
+
+                <!-- This textarea let you input text -->
+                <div class="body-input-box__text">
+                    <textarea class="text__input"></textarea>
+                </div>
+
+                <!-- This box let you setting your post -->
+                <div class="body-input-box__setting">
+                    <div class="setting__color"><p>A</p></div>
+                    <div class="setting__feeling"></div>
+                </div>
+
+                <!-- Other options help your post more diverse -->
+                <div class="body-input-box__other-options">
+                    <span class="other-options__text">Thêm vào bài viết</span>
+                    <ul class="other-option__items">
+                        <li class="item"><i class="fa-solid fa-image icon--green"></i></li>
+                        <li class="item"><i class="fa-solid fa-user-tag icon--blue"></i></li>
+                        <li class="item"><i class="fa-regular fa-face-laugh icon--yellow"></i></li>
+                        <li class="item"><i class="fa-solid fa-location-dot icon--red"></i></li>
+                        <li class="item"><i class="fa-solid fa-microphone icon--red"></i></li>
+                        <li class="item"><i class="fa-solid fa-ellipsis"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        </div>
+
         <section class="post"></section>
     </main>
 </body>

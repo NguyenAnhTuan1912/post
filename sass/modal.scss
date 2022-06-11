@@ -1,0 +1,33 @@
+@use "sass:math";
+
+// Font Size
+$fs-title: 2rem;
+$fs-subtitle: 1.6rem;
+$fs-post-text: 1.4rem;
+$fs-button: 1.6rem;
+
+// Font color
+$fc-light: rgba(255, 255, 255, 0.56);
+
+// Body and Box Color
+$bg-color1: rgb(24, 25, 26);
+$box-color1: rgb(36, 37, 38);
+$box-color2: rgba(24, 25, 26, 0.2);
+
+// Box Shadow
+$bs-style1: rgba(0, 0, 0, 0.2) 0px 1px 4px;
+
+// Button and hover background color
+$btn-color1: rgba(255, 255, 255, 0.2);
+$btn-hover-color1: rgba(255, 255, 255, 0.3);
+$btn-hover-color2: rgba(255, 255, 255, 0.1);
+
+.modal {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: $box-color2;
+}
