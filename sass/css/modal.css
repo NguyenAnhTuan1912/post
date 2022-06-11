@@ -1,13 +1,24 @@
+.display--on {
+  display: block;
+  visibility: visible;
+}
+
+.display--off {
+  display: none;
+  visibility: hidden;
+}
+
 .modal {
   position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100vh;
   background-color: rgba(24, 25, 26, 0.7);
 }
 .modal .post-input {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 500px;
   height: fit-content;
   background-color: rgb(36, 37, 38);
@@ -127,6 +138,7 @@
   margin: 20px 0;
 }
 .modal .post-input .post-input__body-input-box .body-input-box__setting .setting__color {
+  position: relative;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -136,10 +148,30 @@
   aspect-ratio: 1/1;
   border-radius: 10px;
   border: 2px solid #fff;
+  overflow: hidden;
+}
+.modal .post-input .post-input__body-input-box .body-input-box__setting .setting__color:before, .modal .post-input .post-input__body-input-box .body-input-box__setting .setting__color:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 50%;
+  left: 0;
+  background: linear-gradient(45deg, hsl(0deg, 100%, 50%) 50%, transparent 50%), linear-gradient(90deg, hsl(45deg, 100%, 50%) 50%, transparent 50%), linear-gradient(135deg, hsl(90deg, 100%, 50%) 50%, transparent 50%), linear-gradient(180deg, hsl(135deg, 100%, 50%) 50%, transparent 50%);
+  background-size: 36px 36px;
+  filter: blur(4px);
+  z-index: 1;
+}
+.modal .post-input .post-input__body-input-box .body-input-box__setting .setting__color:after {
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 50%, hsl(180deg, 100%, 50%) 50%), linear-gradient(90deg, transparent 50%, hsl(225deg, 100%, 50%) 50%), linear-gradient(135deg, transparent 50%, hsl(270deg, 100%, 50%) 50%), linear-gradient(180deg, transparent 50%, hsl(315deg, 100%, 50%) 50%);
+  z-index: 0;
 }
 .modal .post-input .post-input__body-input-box .body-input-box__setting .setting__color p {
+  position: relative;
   color: rgba(255, 255, 255, 0.88);
   font-size: 1.4rem;
+  z-index: 2;
 }
 .modal .post-input .post-input__body-input-box .body-input-box__setting .setting__feeling {
   cursor: pointer;

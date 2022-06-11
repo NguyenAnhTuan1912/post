@@ -4,22 +4,36 @@
 $fs-title: 2rem;
 $fs-subtitle: 1.6rem;
 $fs-post-text: 1.4rem;
+$fs-post-text--bigger: 2.2rem;
+$fs-post-creater: 2.2rem;
+$fs-time: 1.2rem;
 $fs-button: 1.6rem;
 
 // Font color
+$fc-dark: rgba(255, 255, 255, 0.4);
 $fc-light: rgba(255, 255, 255, 0.56);
+$fc-lighter: rgba(255, 255, 255, 0.88);
 
 // Body and Box Color
 $bg-color1: rgb(24, 25, 26);
 $box-color1: rgb(36, 37, 38);
+$box-color2: rgba(24, 25, 26, 0.7);
 
 // Box Shadow
 $bs-style1: rgba(0, 0, 0, 0.2) 0px 1px 4px;
+$bs-style2: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(255, 255, 255, 0.15) 0px 0px 0px 1px;
 
 // Button and hover background color
 $btn-color1: rgba(255, 255, 255, 0.2);
+$btn-color2: rgba(255, 255, 255, 0.1);
+$btn-color3: rgba(255, 255, 255, 0.15);
 $btn-hover-color1: rgba(255, 255, 255, 0.3);
 $btn-hover-color2: rgba(255, 255, 255, 0.1);
+$btn-hover-color3: rgba(255, 255, 255, 0.2);
+
+// Border color 
+$bd-color1: rgba(255, 255, 255, 0.1);
+
 
 .icon--red {
     color:rgb(234, 66, 66);
@@ -46,6 +60,7 @@ $btn-hover-color2: rgba(255, 255, 255, 0.1);
     padding: 12px 16px 12px 16px;
     background-color: $box-color1;
     border-radius: 5px;
+    margin: 50px 0;
     box-shadow: $bs-style1;
 
     .post-maker_create-container {
@@ -109,6 +124,226 @@ $btn-hover-color2: rgba(255, 255, 255, 0.1);
 
             i {
                 margin-right: 5px;
+            }
+        }
+    }
+}
+
+
+.post {
+    width: percentage(math.div(680, 1280));
+    height: fit-content;
+    background-color: $box-color1;
+    padding: 12px 16px 12px 16px;
+    border-radius: 5px;
+    color: $fc-lighter;
+
+    .post__user-setting {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+
+        .user-setting__user {
+            display: grid;
+            justify-content: start;
+            align-items: center;
+            column-gap: 10px;
+            grid-template-areas:
+                'avatar name'
+                'avatar create-at'
+            ;
+            width: 100%;
+            height: fit-content;
+
+            .user__image {
+                width: 40px;
+                height: 40px;
+                aspect-ratio: 1 / 1;
+                grid-area: avatar;
+                background-color: rgb(246, 246, 246);
+                border-radius: 50%;
+            }
+
+            .user__username {
+                font-size: $fs-subtitle;
+            }
+
+            .user__user__create-at {
+                color: $fc-dark;
+                font-size: $fs-time;
+            }
+        }
+
+        .user-setting__setting {
+            position: relative;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            font-size: $fs-post-text;
+
+            &:hover {
+                background-color: $btn-hover-color2;
+            }
+
+            &>i {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .setting__delete {
+                position: absolute;
+                top: 120%;
+                left: -358%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                width: 200px;
+                height: 35px;
+                padding-left: 16px;
+                border-radius: 10px;
+                background-color: $box-color1;
+                box-shadow: $bs-style2;
+                font-size: $fs-post-text;
+
+                &>i {
+                    margin-right: 10px;
+                }
+            }
+
+        }
+    }
+
+    .post__content {
+        width: 100%;
+        height: fit-content;
+        margin: 12px 0;
+        font-size: $fs-post-text--bigger;
+        font-weight: lighter;
+    }
+
+    hr:first-of-type {
+        margin-bottom: 3px;
+    }
+
+    hr:last-of-type {
+        margin-top: 3px;
+    }
+
+    .post__interaction {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+
+        .interaction__like, .interaction__comment {
+            cursor: pointer;
+            width: 50%;
+            padding: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+            text-align: center;
+            color: $fc-light;
+            font-size: $fs-button;
+
+            i {
+                margin-right: 10px;
+            }
+
+            &:hover {
+                background-color: $btn-hover-color2;
+            }
+        }
+    }
+
+    .post__comment {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+
+        .comment__avatar {
+            width: 36px;
+            height: 36px;
+            aspect-ratio: 1 / 1;
+            grid-area: avatar;
+            margin-right: 10px;
+            background-color: rgb(246, 246, 246);
+            border-radius: 50%;
+        }
+
+        .comment__input-comment {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: fit-content;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            
+            
+            .input-comment__input-box {
+                cursor: text;
+                float: left;
+                display: flex;
+                align-items: center;
+                //width: calc(100% - 87px);
+                flex: 2 1 auto;
+                max-width: 100%;
+                min-height: 1%;
+                height: fit-content;
+                padding: 10px 16px 10px 12px;
+
+                .data {
+                    outline: none;
+                    width: 100%;
+                    max-width: 574px;
+                    line-height: 1.6rem;
+                    height: fit-content;
+                    font-size: $fs-post-text;
+
+                    &[contentEditable=true]:empty:not(:focus):before{
+                        content:attr(data-text)
+                    }
+                }
+            }
+
+            .input-comment {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: fit-content;
+                height: 36px;
+                margin-right: 5px;
+
+                li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    list-style: none;
+                    width: 36px;
+                    height: 36px;
+                    aspect-ratio: 1 / 1;
+                    border-radius: 50%;
+                    font-size: $fs-button;
+
+                    &:hover {
+                        background-color: $btn-hover-color2;
+                    }
+                }
+
             }
         }
     }

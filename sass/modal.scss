@@ -30,16 +30,27 @@ $btn-hover-color3: rgba(255, 255, 255, 0.2);
 // Border color 
 $bd-color1: rgba(255, 255, 255, 0.1);
 
+.display--on {
+    display: block;
+    visibility: visible;
+}
+
+.display--off {
+    display: none;
+    visibility: hidden;
+}
+
 .modal {
     position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 100vh;
     background-color: $box-color2;
 
     .post-input {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 500px;
         height: fit-content;
         background-color: $box-color1;
@@ -176,6 +187,7 @@ $bd-color1: rgba(255, 255, 255, 0.1);
                 margin: 20px 0;
 
                 .setting__color {
+                    position: relative;
                     cursor: pointer;
                     display: flex;
                     justify-content: center;
@@ -185,10 +197,40 @@ $bd-color1: rgba(255, 255, 255, 0.1);
                     aspect-ratio: 1 / 1;
                     border-radius: 10px;
                     border: 2px solid #fff;
+                    overflow: hidden;
+
+                    &:before, &:after {
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        right: 0;
+                        bottom: 50%;
+                        left: 0;
+                        background:
+                            linear-gradient(45deg, hsl(0, 100%, 50%) 50%, transparent 50%),
+                            linear-gradient(90deg, hsl(45, 100%, 50%) 50%, transparent 50%),
+                            linear-gradient(135deg, hsl(90, 100%, 50%) 50%, transparent 50%),
+                            linear-gradient(180deg, hsl(135, 100%, 50%) 50%, transparent 50%);
+                        background-size: 36px 36px;
+                        filter: blur(4px);
+                        z-index: 1;
+                    }
+                    
+                    &:after {
+                        bottom: 0;
+                        background:
+                            linear-gradient(45deg, transparent 50%, hsl(180, 100%, 50%) 50%),
+                            linear-gradient(90deg, transparent 50%, hsl(225, 100%, 50%) 50%),
+                            linear-gradient(135deg, transparent 50%, hsl(270, 100%, 50%) 50%),
+                            linear-gradient(180deg, transparent 50%, hsl(315, 100%, 50%) 50%);
+                        z-index: 0;
+                    }
 
                     p {
+                        position: relative;
                         color: $fc-lighter;
                         font-size: $fs-post-text;
+                        z-index: 2;
                     }
                 }
 
