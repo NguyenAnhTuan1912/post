@@ -33,6 +33,12 @@ $btn-hover-color2: rgba(255, 255, 255, 0.1);
 .icon--yellow {
     color: rgb(255, 207, 105);
 }
+.icon--light-gray {
+    color: rgb(134, 134, 134);
+}
+.icon--font--size {
+    font-size: 2.8rem;
+}
 
 .post-maker {
     width: percentage(math.div(680, 1280));

@@ -43,53 +43,55 @@
 
         <div class="modal">
             <!-- Modal Box, Input data to create post -->
-        <section class="post-input">
+            <section class="post-input">
 
-            <!-- This box contain box name and user's name, avatar and setting -->
-            <div class="post-input__header-input-box">
+                <!-- This box contain box name and user's name, avatar and setting -->
+                <div class="post-input__header-input-box">
 
-                <!-- This box contain box's name and cancel button -->
-                <header class="header-input-box__option-name">
-                    <h1 class="option-name__name">Tạo bài viết</h1>
-                    <button class="option-name__exit" id="js-postCancelButton"><i class="fa-solid fa-xmark-large"></i></button>
-                </header>
-
-                <!-- This box contain user's name, avatar and privacy setting -->
-                <div class="header-input-box__user-setting">
-                    <div class="user-setting__avatar"></div>
-                    <p class="user-setting__name">Nguyen Anh Tuan</p>
-                    <button class="user-setting__setting"><i class="fa-solid fa-earth-americas"></i>Công khai<i class="fa-solid fa-caret-down"></i></button>
-                </div>
-            </div>
-
-            <!-- Input section -->
-            <div class="post-input__body-input-box">
-
-                <!-- This textarea let you input text -->
-                <div class="body-input-box__text">
-                    <textarea class="text__input"></textarea>
+                    <!-- This box contain box's name and cancel button -->
+                    <header class="header-input-box__option-name">
+                        <h1 class="option-name__name">Tạo bài viết</h1>
+                        <button class="option-name__exit" id="js-postCancelButton"><i class="fa-solid fa-xmark icon--light-gray icon--font--size"></i></button>
+                    </header>
+                    <hr>
+                    <!-- This box contain user's name, avatar and privacy setting -->
+                    <div class="header-input-box__user-setting">
+                        <div class="user-setting__avatar"></div>
+                        <p class="user-setting__name">Nguyen Anh Tuan</p>
+                        <button class="user-setting__setting"><i class="fa-solid fa-earth-americas"></i>Công khai<i class="fa-solid fa-caret-down"></i></button>
+                    </div>
                 </div>
 
-                <!-- This box let you setting your post -->
-                <div class="body-input-box__setting">
-                    <div class="setting__color"><p>A</p></div>
-                    <div class="setting__feeling"></div>
-                </div>
+                <!-- Input section -->
+                <div class="post-input__body-input-box">
 
-                <!-- Other options help your post more diverse -->
-                <div class="body-input-box__other-options">
-                    <span class="other-options__text">Thêm vào bài viết</span>
-                    <ul class="other-option__items">
-                        <li class="item"><i class="fa-solid fa-image icon--green"></i></li>
-                        <li class="item"><i class="fa-solid fa-user-tag icon--blue"></i></li>
-                        <li class="item"><i class="fa-regular fa-face-laugh icon--yellow"></i></li>
-                        <li class="item"><i class="fa-solid fa-location-dot icon--red"></i></li>
-                        <li class="item"><i class="fa-solid fa-microphone icon--red"></i></li>
-                        <li class="item"><i class="fa-solid fa-ellipsis"></i></li>
-                    </ul>
+                    <!-- This textarea let you input text -->
+                    <div class="body-input-box__text">
+                        <textarea class="text__input" placeholder="Bạn đang nghĩ gì?"></textarea>
+                    </div>
+
+                    <!-- This box let you setting your post -->
+                    <div class="body-input-box__setting">
+                        <div class="setting__color"><p>A</p></div>
+                        <div class="setting__feeling"><i class="fa-regular fa-face-smile icon--light-gray icon--font--size"></i></div>
+                    </div>
+
+                    <!-- Other options help your post more diverse -->
+                    <div class="body-input-box__other-options">
+                        <span class="other-options__text">Thêm vào bài viết</span>
+                        <ul class="other-option__items">
+                            <li class="item"><i class="fa-solid fa-image icon--green"></i></li>
+                            <li class="item"><i class="fa-solid fa-user-tag icon--blue"></i></li>
+                            <li class="item"><i class="fa-regular fa-face-laugh icon--yellow"></i></li>
+                            <li class="item"><i class="fa-solid fa-location-dot icon--red"></i></li>
+                            <li class="item"><i class="fa-solid fa-microphone icon--red"></i></li>
+                            <li class="item"><i class="fa-solid fa-ellipsis icon--light-gray"></i></li>
+                        </ul>
+                    </div>
+
+                    <button class="body-input-box__post" id="js-postButton">Đăng</button>
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
 
         <section class="post"></section>
