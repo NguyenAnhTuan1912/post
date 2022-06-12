@@ -24,14 +24,18 @@ body {
   background-color: rgb(24, 25, 26);
 }
 
-main {
+main, .post-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 1280px;
-  height: 100%;
+  height: fit-content;
   margin: 0 auto;
+}
+
+.post-container {
+  row-gap: 50px;
 }
 
 /*# sourceMappingURL=layout.css.map */

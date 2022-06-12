@@ -4,12 +4,11 @@ const postCreateBtn = document.querySelector('#js-postCreateButton');
 const postCancelBtn = document.querySelector('#js-postCancelButton');
 const postBtn = document.querySelector('#js-postButton');
 
-
 const dataInputTextArea = document.querySelector('#js-textAreaDataInput');
 
 const modal = document.querySelector('#js-modal');
 
-const root = document.querySelector('#js-posts-container');
+const postsContainer = document.querySelector('#js-postsContainer');
 
 
 function toggleElementClassList(element, className) {
@@ -26,10 +25,6 @@ function removeElementClassList(element, className) {
     if(element.classList.contains(className)) {
         element.classList.remove(className);
     }
-}
-
-function postAccept() {
-    renderPost(root, dataInputTextArea.value);
 }
 
 function addStyles(element, styles) {
@@ -56,16 +51,21 @@ function removeElementHover(element, newStyles, OldStyles) {
     });
 }
 
+function setDataToRender() {
+    renderPost(postsContainer, dataInputTextArea.value);
+    dataInputTextArea.value = '';
+    toggleElementClassList(modal, 'display--off');
+}
+
 function postButtonStateChange(bool) {
     if(bool) {
-        postBtn.addEventListener('click', postAccept);
+        postBtn.addEventListener('click', setDataToRender);
         addElementClassList(postBtn, 'post-button--available');
     } else {
-        postBtn.removeEventListener('click', postAccept);
+        postBtn.removeEventListener('click', setDataToRender);
         removeElementClassList(postBtn, 'post-button--available');
     }
 }
-
 
 
 
