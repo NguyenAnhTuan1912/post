@@ -28,20 +28,20 @@
                 <div class="create-container__image"></div>
 
                 <!-- Button container -->
-                <button class="create-container__button" id="js-postCreateButton">Bạn đang nghĩ gì?</button>
+                <button class="create-container__button" id="js-postCreateButton">Tuan ơi, bạn đang nghĩ gì thế?</button>
             </div>
 
             <hr>
 
             <!-- Other options to make other types of post -->
             <div class="other-option">
-                <button class="other-option__live"><i class="fa-solid fa-video icon--red"></i> Video trực tiếp</button>
-                <button class="other-options__image-video"><i class="fa-solid fa-image icon--green"></i> Ảnh/video</button>
-                <button class="other-options__event"><i class="fa-solid fa-flag icon--blue"></i> Sự kiện trong đời</button>
+                <button class="other-option__live" onclick="alert('Tính năng này chưa được phát triển!')"><i class="fa-solid fa-video icon--red"></i> Video trực tiếp</button>
+                <button class="other-options__image-video" onclick="alert('Tính năng này chưa được phát triển!')"><i class="fa-solid fa-image icon--green"></i> Ảnh/video</button>
+                <button class="other-options__event" onclick="alert('Tính năng này chưa được phát triển!')"><i class="fa-solid fa-flag icon--blue"></i> Sự kiện trong đời</button>
             </div>
         </div>
 
-        <div class="modal display--off">
+        <div class="modal display--off" id="js-modal">
             <!-- Modal Box, Input data to create post -->
             <section class="post-input">
 
@@ -67,7 +67,7 @@
 
                     <!-- This textarea let you input text -->
                     <div class="body-input-box__text">
-                        <textarea class="text__input" placeholder="Bạn đang nghĩ gì?"></textarea>
+                        <textarea class="text__input" placeholder="Tuan ơi, bạn đang nghĩ gì thế?" id="js-textAreaDataInput"></textarea>
                     </div>
 
                     <!-- This box let you setting your post -->
@@ -89,59 +89,12 @@
                         </ul>
                     </div>
 
-                    <button class="body-input-box__post" id="js-postButton">Đăng</button>
+                    <button class="body-input-box__post button--hover" id="js-postButton">Đăng</button>
                 </div>
             </section>
         </div>
 
-        <!-- This is a post -->
-        <section class="post">
-
-            <!-- The post header -->
-            <header class="post__user-setting">
-                <div class="user-setting__user">
-                    <div class="user__image"></div>
-                    <h1 class="user__username">Nguyen Anh Tuan</h1>
-                    <p class="user__user__create-at">
-                        <span class="create-at__time">Vừa xong</span>
-                        <i class="fa-solid fa-earth-americas" id="js-privacyStatus"></i>
-                    </p>
-                </div>
-                <div class="user-setting__setting" id="js-postSettingButton">
-                    <i class="fa-solid fa-ellipsis"></i>
-                    <div class="setting__delete display--off" id="js-postDeleteButton">
-                        <i class="fa-regular fa-trash-can"></i>
-                        <p>Chuyển vào thùng rác</p>
-                    </div>
-                </div>
-            </header>
-
-            <div class="post__content">
-                <div class="content__text-container">
-                    <p class="text" id="js-textData">Day la doan van mau</p>
-                </div>
-            </div>
-
-            <hr>
-            <div class="post__interaction">
-                <button class="interaction__like" id="js-likeButton"><i class="fa-regular fa-thumbs-up"></i>Thích</button>
-                <button class="interaction__comment" id="js-commentButton"><i class="fa-regular fa-message"></i>Bình luận</button>
-            </div>
-            <hr>
-
-            <div class="post__comment">
-                <div class="comment__avatar"></div>
-                <div class="comment__input-comment">
-                    <div class="input-comment__input-box">
-                        <div class="data" contenteditable="true" data-text="Viết bình luận..."></div>
-                    </div>
-                    <ul class="input-comment">
-                        <li class="input-comment"><i class="fa-regular fa-face-smile"></i></li>
-                        <li class="input-comment"><i class="fa-solid fa-camera"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
     </main>
+    <script type="module" src="./js/main.js"></script>
 </body>
 </html>

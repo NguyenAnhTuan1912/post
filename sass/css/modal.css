@@ -233,5 +233,13 @@
   font-weight: 500;
   color: rgba(255, 255, 255, 0.56);
 }
+.modal .post-input .post-button--available {
+  cursor: pointer;
+  color: #fff;
+  background-color: rgb(35, 116, 225);
+}
+.modal .post-input .post-button--available:hover {
+  background-color: rgb(74, 149, 247);
+}
 
 /*# sourceMappingURL=modal.css.map */
