@@ -1,5 +1,6 @@
 import { renderPost } from "./modifierPost.js";
 
+
 const postCreateBtn = document.querySelector('#js-postCreateButton');
 const postCancelBtn = document.querySelector('#js-postCancelButton');
 const postBtn = document.querySelector('#js-postButton');
@@ -10,6 +11,18 @@ const modal = document.querySelector('#js-modal');
 
 const postsContainer = document.querySelector('#js-postsContainer');
 
+const spanTimeInfor = {
+    length: 0,
+    element: []
+}
+
+const timeStart = (function() {
+    let counter = 0;
+    return function () {
+        counter += 5;
+        return counter;
+    }
+})();
 
 function toggleElementClassList(element, className) {
     element.classList.toggle(className);
@@ -55,6 +68,11 @@ function setDataToRender() {
     renderPost(postsContainer, dataInputTextArea.value);
     dataInputTextArea.value = '';
     toggleElementClassList(modal, 'display--off');
+
+    spanTimeInfor.element = [...document.querySelectorAll('.create-at__time')];
+    spanTimeInfor.length = spanTimeInfor.element.length;
+
+    spanTimeInfor.element[spanTimeInfor.length - 1].setAttribute('data-second', timeStart());
 }
 
 function postButtonStateChange(bool) {
@@ -96,3 +114,24 @@ postCancelBtn.addEventListener('click', (e) => {
         postCreateBtn.innerHTML = 'Tuan ơi, bạn đang nghĩ gì thế?';
     }
 });
+
+function calcTime(timeDistance) {
+    if(timeDistance < 60) {
+        return `${timeDistance} giây trước.`;
+    } if(timeDistance >= 60 && timeDistance < 3600) {
+        return `${timeDistance % 60 + 1} phút trước.`;
+    }
+}
+
+setInterval(() => {
+    const timePass = timeStart();
+    if(spanTimeInfor.length > 0) {
+        for(let i = 0; i < spanTimeInfor.length; i++) {
+            const postTimeCreated = parseInt(spanTimeInfor.element[i].getAttribute('data-second'));
+            if((timePass - postTimeCreated) >= 60 && (timePass - postTimeCreated) % 60 === 0 && (timePass - postTimeCreated) < 3600) {
+                spanTimeInfor.element[i].innerHTML = `${(timePass - postTimeCreated) / 60} phút trước.`;
+            } else if(timePass - postTimeCreated < 60)
+                spanTimeInfor.element[i].innerHTML = `${(timePass - postTimeCreated)} giây trước.`;
+        }
+    }
+}, 10000);

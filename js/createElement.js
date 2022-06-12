@@ -1,5 +1,7 @@
 function createPostHeader(selectorName) {
     const headerTag = document.createElement('header');
+    const time = new Date();
+    const createdTime = time.getSeconds();
     headerTag.classList.add(selectorName);
 
     headerTag.innerHTML = `
@@ -7,7 +9,7 @@ function createPostHeader(selectorName) {
         <div class="user__image"></div>
             <h1 class="user__username">Nguyen Anh Tuan</h1>
             <p class="user__user__create-at">
-                <span class="create-at__time">Vừa xong</span>
+                <span class="create-at__time" data-second="${createdTime}">Vừa xong</span>
                 <i class="fa-solid fa-earth-americas" id="js-privacyStatus"></i>
             </p>
     </div>
